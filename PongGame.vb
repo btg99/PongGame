@@ -3,6 +3,9 @@
     Dim windowY = Me.Location.Y
     Dim xChange = 1
     Dim yChange = 1
+    
+    Dim p1Score = 0
+    DIm p2Score = 0
 
     Dim speed As Single = 10 ' Ball Speed
     Dim rndInst As New Random() ' Random instance
@@ -62,6 +65,17 @@
         If ballP.Bounds.IntersectsWith(redPaddle.Bounds) Or ballP.Bounds.IntersectsWith(greenPaddle.Bounds) Then
             xChange *= -2
         End If
+        
+        If ballP.Location.X <= 0 Then
+        p2Score += 1
+        ballP.Location = New Point( Me.Size.Width/2, Me.Size.Height/2)
+        End If
+        
+         If ballP.Location.X >= 730 Then
+        p1Score += 1
+        ballP.Location = New Point( Me.Size.Width/2, Me.Size.Height/2)
+        End If
+        
         ballP.Location = New Point(xPos + xChange, yPos + yChange)
     End Function
 End Class
