@@ -76,6 +76,9 @@
         ballP.Location = New Point( Me.Size.Width/2, Me.Size.Height/2)
         End If
         
+        p1score.Text = p1score
+        p2score.Text = p2score
+        
         ballP.Location = New Point(xPos + xChange, yPos + yChange)
     End Function
 End Class
